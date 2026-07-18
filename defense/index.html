@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Headliner DOJ Suite — Defense</title>
+<title>Headliner DOJ Suite — Defense v3.2.0</title>
 <style>
 :root{
   --bg:#080808;--panel:#141414;--panel2:#202020;--line:#3d3d3d;
@@ -14,7 +14,15 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer;touch-action:manipulation}
-.app{height:100%;padding:8px;display:grid;grid-template-rows:76px 25px 1fr 108px;gap:8px}
+.app{height:100%;padding:10px;display:grid;grid-template-rows:58px 76px 25px 1fr 108px;gap:9px}
+
+
+/* SUITE SHELL — v3.2 foundation */
+.suitebar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 16px;background:linear-gradient(135deg,#111a29,#151515);border:1px solid #36445b;border-radius:12px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+.suitebrand{display:flex;align-items:center;gap:13px;min-width:0}.seal{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#dfbb59;color:#111827;font-weight:950;font-size:17px;box-shadow:0 0 0 3px rgba(223,187,89,.13)}
+.suitename{font-size:12px;font-weight:950;letter-spacing:.17em;color:#dfbb59}.modulename{font-size:21px;font-weight:950;line-height:1.05}.suite-meta{display:flex;align-items:center;gap:10px;color:#aeb9cb;font-size:12px;font-weight:800}.status-pill{padding:7px 10px;border:1px solid #3c4a61;border-radius:999px;background:#0b121e}.suite-action{height:36px;padding:0 12px;border:1px solid #4b596d;border-radius:9px;background:#202b3b;color:#fff;font-size:12px;font-weight:900}.suite-action:hover{background:#2a3850}
+.command-modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:flex-start;justify-content:center;padding-top:9vh;z-index:90000}.command-modal.show{display:flex}.command-card{width:min(720px,94vw);background:#111a29;border:1px solid #465673;border-radius:18px;box-shadow:0 30px 100px rgba(0,0,0,.65);overflow:hidden}.command-input{width:100%;height:64px;padding:0 20px;border:0;border-bottom:1px solid #38465c;background:#08111e;color:#fff;font-size:20px;outline:none}.command-list{max-height:54vh;overflow:auto;padding:8px}.command-item{display:flex;justify-content:space-between;gap:14px;width:100%;padding:13px 14px;border:0;border-radius:10px;background:transparent;color:#fff;text-align:left}.command-item:hover,.command-item.active{background:#24334a}.command-main{font-weight:900}.command-sub{display:block;color:#9faec3;font-size:12px;margin-top:3px}.command-key{color:#dfbb59;font-size:11px;font-weight:950;white-space:nowrap}.command-empty{padding:28px;text-align:center;color:#91a0b6}
+@media(max-width:900px){.suite-meta .status-pill:nth-child(1){display:none}.suitebar{padding:0 10px}.modulename{font-size:17px}}
 
 /* TOP */
 .top{display:grid;grid-template-columns:1.1fr 1.2fr 1fr auto;gap:8px}
@@ -164,10 +172,22 @@ button{cursor:pointer;touch-action:manipulation}
     <input id="loginPassword" type="password" autocomplete="current-password" required>
     <button id="loginButton" type="submit">Unlock Defense</button>
     <div id="loginError" class="login-error" role="alert"></div>
-    <div class="login-foot">Suite v3.1.1 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
+    <div class="login-foot">Suite v3.2.0 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
   </form>
 </div>
 <div id="defenseApp" class="app app-locked">
+
+<div class="suitebar">
+  <div class="suitebrand">
+    <div class="seal">DOJ</div>
+    <div><div class="suitename">HEADLINER DOJ SUITE</div><div class="modulename">Defense</div></div>
+  </div>
+  <div class="suite-meta">
+    <span class="status-pill">Suite v3.2.0</span>
+    <span class="status-pill">PC7.17.26</span>
+    <button id="commandBtn" class="suite-action" title="Open command palette">⌘ Commands <span style="opacity:.7">Ctrl+K</span></button>
+  </div>
+</div>
 
 <div class="top">
   <div class="topbox">
@@ -216,11 +236,19 @@ button{cursor:pointer;touch-action:manipulation}
 </div>
 
 
+
+<div id="commandModal" class="command-modal" aria-hidden="true">
+  <div class="command-card" role="dialog" aria-modal="true" aria-label="Command palette">
+    <input id="commandInput" class="command-input" placeholder="Search charges or type a command…" autocomplete="off">
+    <div id="commandList" class="command-list"></div>
+  </div>
+</div>
+
 <div class="database-modal" id="csvAboutModal">
   <div class="database-card">
     <h2>Penal Code Database</h2>
     <div class="database-grid">
-      <strong>Application</strong><span>Defense Module v3.1.0</span>
+      <strong>Application</strong><span>Defense Module v3.2.0</span>
       <strong>Version</strong><span id="aboutCsvVersion">PC7.17.26</span>
       <strong>Updated</strong><span id="aboutCsvUpdated">07/17/2026 10:39 PM CDT</span>
       <strong>Charges</strong><span id="aboutCsvCount">173</span>
@@ -503,6 +531,34 @@ function restoreBuiltInCsv(){
   if(!confirm("Restore the built-in PC7.17.26 penal code?"))return;
   localStorage.removeItem(CSV_STORE);localStorage.removeItem(CSV_META_STORE);setChargeData(DEFAULT_CHARGES.map(c=>({...c})),"Built-In",DEFAULT_CSV_META);
 }
+
+
+// Suite command palette — shared-shell foundation
+const COMMANDS=[
+  {name:"Open summary",sub:"Build the current cell-call summary",key:"summary",run:()=>$("#summaryBtn").click()},
+  {name:"Clear case",sub:"Reset charges, positions and notes",key:"clear",run:()=>$("#clearBtn").click()},
+  {name:"Import penal code CSV",sub:"Choose an updated master CSV",key:"import",run:()=>$("#importBtn").click()},
+  {name:"Export current CSV",sub:"Download the active penal-code database",key:"export",run:()=>$("#exportCsvBtn").click()},
+  {name:"Penal code information",sub:"Show version, source and charge count",key:"database",run:()=>$("#aboutCsvBtn").click()},
+  {name:"Lock Defense",sub:"Return to the secure login screen",key:"lock",run:()=>$("#lockBtn").click()}
+];
+let commandMatches=[];
+function closeCommandPalette(){const m=$("#commandModal");m.classList.remove("show");m.setAttribute("aria-hidden","true");$("#commandInput").value=""}
+function openCommandPalette(){const m=$("#commandModal");m.classList.add("show");m.setAttribute("aria-hidden","false");renderCommandPalette("");setTimeout(()=>$("#commandInput").focus(),0)}
+function renderCommandPalette(query){
+  const q=(query||"").trim().toLowerCase();
+  const commands=COMMANDS.filter(c=>!q||`${c.name} ${c.sub} ${c.key}`.toLowerCase().includes(q)).map(c=>({type:"command",...c}));
+  const charges=CHARGES.filter(c=>!q||`${c.code} ${c.charge} ${c.description||""}`.toLowerCase().includes(q)).slice(0,q?12:6).map(c=>({type:"charge",name:`${c.code} — ${c.charge}`,sub:`${c.classification} • ${c.time} months • ${money(c.fine)}`,charge:c,key:"Add"}));
+  commandMatches=[...commands,...charges];
+  $("#commandList").innerHTML=commandMatches.length?commandMatches.map((x,i)=>`<button class="command-item ${i===0?"active":""}" data-command-index="${i}"><span><span class="command-main">${x.name}</span><span class="command-sub">${x.sub}</span></span><span class="command-key">${x.key}</span></button>`).join(""):'<div class="command-empty">No matching commands or charges.</div>';
+  $("#commandList").querySelectorAll("[data-command-index]").forEach(b=>b.onclick=()=>runCommand(Number(b.dataset.commandIndex)));
+}
+function runCommand(i){const item=commandMatches[i];if(!item)return;closeCommandPalette();if(item.type==="charge")addCharge(item.charge);else item.run()}
+$("#commandBtn").onclick=openCommandPalette;
+$("#commandInput").addEventListener("input",e=>renderCommandPalette(e.target.value));
+$("#commandInput").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();runCommand(0)}else if(e.key==="Escape")closeCommandPalette()});
+$("#commandModal").addEventListener("click",e=>{if(e.target===$("#commandModal"))closeCommandPalette()});
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openCommandPalette()}else if(e.key==="Escape"&&$("#commandModal").classList.contains("show"))closeCommandPalette()});
 
 function populateSections(){
   const select=$("#sectionSelect");
