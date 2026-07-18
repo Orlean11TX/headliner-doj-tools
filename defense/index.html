@@ -207,6 +207,7 @@ button{cursor:pointer;touch-action:manipulation}
 .timer-card{background:#111a29;border:1px solid #34435b;border-radius:12px;padding:9px;min-width:0}.timer-card.active{border-color:#dfbb59;box-shadow:0 0 0 2px rgba(223,187,89,.12)}.timer-card.overtime{border-color:#ff4e4e;background:#351214;animation:timerFlash 1s step-end infinite}.timer-title{font-size:10px;color:#9eabc0;font-weight:950;text-transform:uppercase;letter-spacing:.08em}.timer-display{font-size:clamp(25px,3vw,42px);font-variant-numeric:tabular-nums;font-weight:950;line-height:1.1;margin:3px 0}.timer-sub{font-size:10px;color:#8e9bb0;min-height:13px}.timer-controls{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}.timer-btn{border:1px solid #455670;background:#202c40;color:#fff;border-radius:7px;padding:6px 8px;font-size:10px;font-weight:900}.timer-btn.primary{background:#b89232;color:#08101c;border-color:#dfbb59}.timer-btn.danger{background:#6f2525;border-color:#ad4545}.case-mini{display:grid;grid-template-columns:1fr 1fr;gap:5px}.case-mini input,.case-mini select{min-width:0;width:100%;height:31px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:7px;padding:0 8px;font-size:11px}.case-mini .wide{grid-column:1/-1}.timeline-count{font-size:11px;color:#dabb62;font-weight:900;margin-top:5px}@keyframes timerFlash{50%{background:#6d181c}}
 .report-modal{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:95000;padding:14px}.report-modal.show{display:flex}.report-card{width:min(980px,97vw);max-height:94vh;overflow:auto;background:#f7f7f3;color:#171717;border-radius:14px;padding:24px}.report-card h1{margin:0;font-size:27px}.report-card h2{font-size:16px;border-bottom:2px solid #222;padding-bottom:4px;margin-top:20px}.report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.report-field{border:1px solid #bbb;border-radius:6px;padding:8px}.report-field b{display:block;font-size:10px;text-transform:uppercase;color:#555}.report-table{width:100%;border-collapse:collapse}.report-table th,.report-table td{border-bottom:1px solid #ccc;text-align:left;padding:7px;font-size:12px}.report-actions{position:sticky;bottom:-24px;background:#eee;border-top:1px solid #bbb;margin:20px -24px -24px;padding:12px 24px;display:flex;justify-content:flex-end;gap:8px}.report-actions button{border:0;border-radius:7px;padding:10px 14px;font-weight:900}.pdf-btn{background:#9b1f24;color:#fff}.report-close{background:#555;color:#fff}
 @media(max-width:900px){.timer-workspace{grid-template-columns:1fr 1fr}.timer-card.cell,.timer-card.case{grid-column:1/-1}.report-grid{grid-template-columns:1fr 1fr}}
+.timeline-tools{display:flex;gap:6px;margin-top:7px}.timeline-tools button{flex:1;min-height:34px}.timeline-modal{position:fixed;inset:0;background:rgba(0,0,0,.84);display:none;align-items:center;justify-content:center;z-index:94000;padding:14px}.timeline-modal.show{display:flex}.timeline-card{width:min(760px,96vw);max-height:90vh;overflow:auto;background:#111a29;border:1px solid #465774;border-radius:14px;padding:16px;color:#fff}.timeline-card h2{margin:0 0 10px}.timeline-entry{display:grid;grid-template-columns:110px 1fr;gap:10px;border-bottom:1px solid #2b3950;padding:9px 0}.timeline-entry time{color:#dabb62;font-weight:900;font-variant-numeric:tabular-nums}.timeline-entry b{display:block}.timeline-entry small{color:#9eabc0}.timeline-add{display:grid;grid-template-columns:1fr auto;gap:8px;margin:12px 0}.timeline-add input{min-height:42px;background:#08111e;border:1px solid #455670;border-radius:8px;color:#fff;padding:0 10px}.timeline-add button,.timeline-close{min-height:42px;border:0;border-radius:8px;font-weight:900;padding:0 14px}.timeline-add button{background:#b89232;color:#08101c}.timeline-close{background:#4d5f79;color:#fff;width:100%;margin-top:12px}@media(max-width:600px){.timeline-entry{grid-template-columns:1fr}.timeline-add{grid-template-columns:1fr}.timeline-tools{flex-direction:column}}
 
 /* Responsive layout repair v3.3.1 */
 .app > *{min-width:0}
@@ -232,7 +233,7 @@ button{cursor:pointer;touch-action:manipulation}
     <input id="loginPassword" type="password" autocomplete="current-password" required>
     <button id="loginButton" type="submit">Unlock Defense</button>
     <div id="loginError" class="login-error" role="alert"></div>
-    <div class="login-foot">Suite v3.3.1 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
+    <div class="login-foot">Suite v3.4.0 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
   </form>
 </div>
 <div id="defenseApp" class="app app-locked">
@@ -243,7 +244,7 @@ button{cursor:pointer;touch-action:manipulation}
     <div><div class="suitename">HEADLINER DOJ SUITE</div><div class="modulename">Defense</div></div>
   </div>
   <div class="suite-meta">
-    <span class="status-pill">Suite v3.3.1</span>
+    <span class="status-pill">Suite v3.4.0</span>
     <span class="status-pill">PC7.17.26</span>
     <button id="commandBtn" class="suite-action" title="Open command palette">🔎 Search & Commands <span style="opacity:.7">/</span></button>
   </div>
@@ -253,7 +254,7 @@ button{cursor:pointer;touch-action:manipulation}
   <div class="timer-card" id="responseCard"><div class="timer-title">Response Time</div><div class="timer-display" id="responseDisplay">00:00</div><div class="timer-sub" id="responseSub">Travel / response to cells</div><div class="timer-controls"><button class="timer-btn primary" id="responseStart">Start</button><button class="timer-btn" id="responsePause">Pause</button><button class="timer-btn" id="responseContact">Officer Contacted</button><button class="timer-btn danger" id="responseReset">Reset</button></div></div>
   <div class="timer-card" id="waitCard"><div class="timer-title">Officer Wait</div><div class="timer-display" id="waitDisplay">00:00</div><div class="timer-sub" id="waitSub">Waiting for officer readiness</div><div class="timer-controls"><button class="timer-btn primary" id="waitStart">Start</button><button class="timer-btn" id="waitPause">Pause</button><button class="timer-btn" id="beginCall">Begin Cell Call</button><button class="timer-btn danger" id="waitReset">Reset</button></div></div>
   <div class="timer-card cell" id="cellCard"><div class="timer-title">Cell Call — 15 Minute Limit</div><div class="timer-display" id="cellDisplay">15:00</div><div class="timer-sub" id="cellSub">Ready</div><div class="timer-controls"><button class="timer-btn primary" id="cellStart">Start</button><button class="timer-btn" id="cellPause">Pause</button><button class="timer-btn" id="cellFinish">Finish</button><button class="timer-btn danger" id="cellReset">Reset</button></div></div>
-  <div class="timer-card case"><div class="timer-title">Call Details</div><div class="case-mini"><input id="caseNumber" placeholder="Case number"><input id="clientName" placeholder="Client"><input id="officerName" placeholder="Officer"><select id="callOutcome"><option value="">Outcome…</option><option>Plea Accepted</option><option>Plea Declined</option><option>No Agreement</option><option>Released / Charges Dropped</option><option>Trial Requested</option></select><input class="wide" id="callTitle" placeholder="Optional call label"></div><div class="timeline-count" id="timelineCount">0 timeline events</div></div>
+  <div class="timer-card case"><div class="timer-title">Call Details</div><div class="case-mini"><input id="caseNumber" placeholder="Case number"><input id="clientName" placeholder="Client"><input id="officerName" placeholder="Officer"><select id="callOutcome"><option value="">Outcome…</option><option>Plea Accepted</option><option>Plea Declined</option><option>No Agreement</option><option>Released / Charges Dropped</option><option>Trial Requested</option></select><input class="wide" id="callTitle" placeholder="Optional call label"></div><div class="timeline-count" id="timelineCount">0 timeline events</div><div class="timeline-tools"><button class="timer-btn" id="viewTimeline">View Timeline</button><button class="timer-btn" id="quickEvent">Add Event</button></div></div>
 </div>
 
 <div class="top">
@@ -306,6 +307,7 @@ button{cursor:pointer;touch-action:manipulation}
 
 
 <div id="reportModal" class="report-modal" aria-hidden="true"><div class="report-card"><div id="reportContent"></div><div class="report-actions"><button id="printReport" class="pdf-btn">Print / Save PDF</button><button id="closeReport" class="report-close">Close</button></div></div></div>
+<div id="timelineModal" class="timeline-modal" aria-hidden="true"><div class="timeline-card"><h2>Negotiation Timeline</h2><div class="timeline-add"><input id="timelineInput" placeholder="Add a note, offer, admission, or important event…"><button id="addTimelineEvent">Add Timestamp</button></div><div id="timelineList"></div><button id="closeTimeline" class="timeline-close">Close Timeline</button></div></div>
 
 <div id="commandModal" class="command-modal" aria-hidden="true">
   <div class="command-card" role="dialog" aria-modal="true" aria-label="Command palette">
@@ -318,7 +320,7 @@ button{cursor:pointer;touch-action:manipulation}
   <div class="database-card">
     <h2>Penal Code Database</h2>
     <div class="database-grid">
-      <strong>Application</strong><span>Defense Module v3.3.0</span>
+      <strong>Application</strong><span>Defense Module v3.4.0</span>
       <strong>Version</strong><span id="aboutCsvVersion">PC7.17.26</span>
       <strong>Updated</strong><span id="aboutCsvUpdated">07/17/2026 10:39 PM CDT</span>
       <strong>Charges</strong><span id="aboutCsvCount">173</span>
@@ -482,8 +484,8 @@ function suggestions(x){
 }
 function addCharge(c){
   const e=state.selected.find(x=>x.code===c.code&&x.charge===c.charge&&!x.dropped);
-  if(e)e.qty++;
-  else state.selected.push({...c,qty:1,reduction:null,show:false,dropped:false});
+  if(e){e.qty++;logEvent("Charge quantity increased",`${c.code} ${c.charge} ×${e.qty}`)}
+  else {state.selected.push({...c,qty:1,reduction:null,show:false,dropped:false});logEvent("Original charge added",`${c.code} ${c.charge} • ${c.time} mo • ${money(c.fine)}`)}
   state.globalPreset=null;
   save();render();
 }
@@ -494,23 +496,27 @@ function changeQty(i,d){
   save();render();
 }
 function toggleDrop(i){
-  state.selected[i].dropped=!state.selected[i].dropped;
-  state.selected[i].show=false;
+  const x=state.selected[i];
+  x.dropped=!x.dropped;
+  x.show=false;
+  logEvent(x.dropped?"Charge dropped from proposal":"Charge restored to proposal",`${x.code} ${x.charge}`);
   save();render();
 }
-function removeCharge(i){state.selected.splice(i,1);save();render()}
+function removeCharge(i){const x=state.selected[i];state.selected.splice(i,1);logEvent("Charge removed",`${x.code} ${x.charge}`);save();render()}
 function toggleReduce(i){
   if(state.selected[i].dropped)return;
   state.selected[i].show=!state.selected[i].show;
   save();render();
 }
 function setReduction(i,s){
-  state.selected[i].reduction=s;
-  state.selected[i].show=false;
+  const x=state.selected[i];
+  x.reduction=s;
+  x.show=false;
   state.globalPreset=null;
+  logEvent("Charge reduced",`${x.code} ${x.charge} → ${s.code} ${s.charge}`);
   save();render();
 }
-function keepOriginal(i){state.selected[i].reduction=null;state.selected[i].show=false;save();render()}
+function keepOriginal(i){const x=state.selected[i];x.reduction=null;x.show=false;logEvent("Original charge retained",`${x.code} ${x.charge}`);save();render()}
 function totals(){
   let ot=0,of=0,pt=0,pf=0,proposedFelony=false;
   state.selected.forEach(x=>{
@@ -789,7 +795,9 @@ $("#search").addEventListener("input",renderChargeList);
 $("#clearBtn").onclick=()=>{
   state={selected:[],goal:"",theory:"",attitude:"",globalPreset:null,notes:""};
   $("#notes").value="";
-  save();render();
+  timerState={response:{elapsed:0,running:false,startedAt:null},wait:{elapsed:0,running:false,startedAt:null},cell:{elapsed:0,running:false,startedAt:null,limit:900},timeline:[]};
+  ["caseNumber","clientName","officerName","callOutcome","callTitle"].forEach(id=>document.getElementById(id).value="");
+  saveTimers();save();render();renderTimers();
 };
 $("#summaryBtn").onclick=()=>{$("#summaryText").textContent=summary();$("#modal").classList.add("show")};
 $("#closeBtn").onclick=()=>$("#modal").classList.remove("show");
@@ -828,7 +836,8 @@ function saveTimers(){localStorage.setItem(TIMER_STORE,JSON.stringify(timerState
 function seconds(k){const t=timerState[k];return Math.max(0,t.elapsed+(t.running&&t.startedAt?(Date.now()-new Date(t.startedAt).getTime())/1000:0))}
 function fmt(sec){sec=Math.floor(Math.max(0,sec));return String(Math.floor(sec/60)).padStart(2,"0")+":"+String(sec%60).padStart(2,"0")}
 function stamp(iso){return new Date(iso).toLocaleTimeString([], {hour:"numeric",minute:"2-digit",second:"2-digit"})}
-function logEvent(label,detail=""){timerState.timeline.push({at:nowIso(),label,detail});saveTimers();renderTimers()}
+function logEvent(label,detail=""){timerState.timeline.push({at:nowIso(),label,detail});saveTimers();renderTimers();renderTimeline()}
+function renderTimeline(){const box=document.getElementById("timelineList");if(!box)return;box.innerHTML=timerState.timeline.length?timerState.timeline.map(e=>`<div class="timeline-entry"><time>${esc(stamp(e.at))}</time><div><b>${esc(e.label)}</b>${e.detail?`<small>${esc(e.detail)}</small>`:""}</div></div>`).join(""):'<div class="empty">No timeline events yet.</div>'}
 function start(k,label){const t=timerState[k];if(t.running)return;t.running=true;t.startedAt=nowIso();logEvent(label||`${k} timer started`)}
 function pause(k,label){const t=timerState[k];if(!t.running)return;t.elapsed=seconds(k);t.running=false;t.startedAt=null;logEvent(label||`${k} timer paused`,fmt(t.elapsed))}
 function reset(k,label){timerState[k].elapsed=0;timerState[k].running=false;timerState[k].startedAt=null;logEvent(label||`${k} timer reset`)}
@@ -860,12 +869,20 @@ function esc(v){return String(v??"").replace(/[&<>\"]/g,ch=>({"&":"&amp;","<":"&
 function rowsOriginal(){return (state.selected||[]).map(x=>`<tr><td>${esc(x.qty+"× "+x.code)}</td><td>${esc(x.charge)}</td><td>${esc(x.classification)}</td><td>${x.time*x.qty} mo</td><td>${money(x.fine*x.qty)}</td></tr>`).join("")||'<tr><td colspan="5">No charges recorded.</td></tr>'}
 function rowsNegotiated(){return (state.selected||[]).map(x=>{if(x.dropped)return `<tr><td>${esc(x.qty+"× "+x.code)}</td><td>${esc(x.charge)}</td><td colspan="3"><b>DROPPED</b></td></tr>`;const e=effective(x);return `<tr><td>${esc(x.qty+"× "+e.code)}</td><td>${esc(e.charge)}</td><td>${esc(e.classification)}</td><td>${e.time*x.qty} mo</td><td>${money(e.fine*x.qty)}</td></tr>`}).join("")||'<tr><td colspan="5">No negotiated charges recorded.</td></tr>'}
 function openReport(){stopNoLog("response");stopNoLog("wait");stopNoLog("cell");logEvent("Negotiation report generated");const t=totals(),c=seconds("cell"),reduction=t.ot?Math.max(0,Math.round((t.ot-t.pt)/t.ot*100)):0;const timeline=timerState.timeline.map(e=>`<tr><td>${esc(stamp(e.at))}</td><td>${esc(e.label)}</td><td>${esc(e.detail||"")}</td></tr>`).join("");
- document.getElementById("reportContent").innerHTML=`<h1>Headliner DOJ Suite</h1><div>Defense Negotiation Summary</div><div class="report-grid" style="margin-top:14px"><div class="report-field"><b>Negotiation ID</b>NEG-${new Date().toISOString().slice(0,10).replaceAll("-","")}-${String(Date.now()).slice(-4)}</div><div class="report-field"><b>Case</b>${esc(details.caseNumber||"—")}</div><div class="report-field"><b>Client</b>${esc(details.clientName||"—")}</div><div class="report-field"><b>Officer</b>${esc(details.officerName||"—")}</div><div class="report-field"><b>Outcome</b>${esc(details.callOutcome||"—")}</div><div class="report-field"><b>Response</b>${fmt(seconds("response"))}</div><div class="report-field"><b>Officer Wait</b>${fmt(seconds("wait"))}</div><div class="report-field"><b>Cell Call</b>${fmt(c)}${c>900?` (+${fmt(c-900)} OT)`:""}</div></div><h2>Original Charges</h2><table class="report-table"><thead><tr><th>Code</th><th>Charge</th><th>Class</th><th>Time</th><th>Fine</th></tr></thead><tbody>${rowsOriginal()}</tbody></table><p><b>Original total:</b> ${t.ot} months / ${money(t.of)}</p><h2>Negotiated Charges</h2><table class="report-table"><thead><tr><th>Code</th><th>Charge</th><th>Class</th><th>Time</th><th>Fine</th></tr></thead><tbody>${rowsNegotiated()}</tbody></table><p><b>Negotiated total:</b> ${t.pt} months / ${money(t.pf)} &nbsp; • &nbsp; <b>Reduction:</b> ${reduction}%</p><h2>Timeline</h2><table class="report-table"><thead><tr><th>Time</th><th>Event</th><th>Details</th></tr></thead><tbody>${timeline||'<tr><td colspan="3">No timeline events.</td></tr>'}</tbody></table><h2>Notes</h2><div style="white-space:pre-wrap">${esc(document.getElementById("notes").value||"No notes recorded.")}</div>`;
+ document.getElementById("reportContent").innerHTML=`<h1>Headliner DOJ Suite</h1><div>Defense Negotiation Summary</div><div class="report-grid" style="margin-top:14px"><div class="report-field"><b>Negotiation ID</b>NEG-${new Date().toISOString().slice(0,10).replaceAll("-","")}-${String(Date.now()).slice(-4)}</div><div class="report-field"><b>Case</b>${esc(details.caseNumber||"—")}</div><div class="report-field"><b>Client</b>${esc(details.clientName||"—")}</div><div class="report-field"><b>Officer</b>${esc(details.officerName||"—")}</div><div class="report-field"><b>Outcome</b>${esc(details.callOutcome||"—")}</div><div class="report-field"><b>Call Label</b>${esc(details.callTitle||"—")}</div><div class="report-field"><b>Client Goal</b>${esc(state.goal||"—")}</div><div class="report-field"><b>Client Position</b>${esc(state.theory||"—")}</div><div class="report-field"><b>Officer Position</b>${esc(state.attitude||"—")}</div><div class="report-field"><b>Response</b>${fmt(seconds("response"))}</div><div class="report-field"><b>Officer Wait</b>${fmt(seconds("wait"))}</div><div class="report-field"><b>Cell Call</b>${fmt(c)}${c>900?` (+${fmt(c-900)} OT)`:""}</div></div><h2>Original Charges</h2><table class="report-table"><thead><tr><th>Code</th><th>Charge</th><th>Class</th><th>Time</th><th>Fine</th></tr></thead><tbody>${rowsOriginal()}</tbody></table><p><b>Original total:</b> ${t.ot} months / ${money(t.of)}</p><h2>Negotiated Charges</h2><table class="report-table"><thead><tr><th>Code</th><th>Charge</th><th>Class</th><th>Time</th><th>Fine</th></tr></thead><tbody>${rowsNegotiated()}</tbody></table><p><b>Negotiated total:</b> ${t.pt} months / ${money(t.pf)} &nbsp; • &nbsp; <b>Reduction:</b> ${reduction}%</p><h2>Timeline</h2><table class="report-table"><thead><tr><th>Time</th><th>Event</th><th>Details</th></tr></thead><tbody>${timeline||'<tr><td colspan="3">No timeline events.</td></tr>'}</tbody></table><h2>Notes</h2><div style="white-space:pre-wrap">${esc(document.getElementById("notes").value||"No notes recorded.")}</div>`;
  document.getElementById("reportModal").classList.add("show");document.getElementById("reportModal").setAttribute("aria-hidden","false")}
 document.getElementById("finishBtn").onclick=()=>{stopNoLog("response");stopNoLog("wait");stopNoLog("cell");logEvent("Negotiation finished",`Response ${fmt(seconds("response"))} • Wait ${fmt(seconds("wait"))} • Call ${fmt(seconds("cell"))}`);openReport()};
 document.getElementById("closeReport").onclick=()=>document.getElementById("reportModal").classList.remove("show");
 document.getElementById("printReport").onclick=()=>{const content=document.getElementById("reportContent").innerHTML,w=window.open("","_blank");w.document.write(`<!doctype html><html><head><title>Defense Negotiation Summary</title><style>body{font-family:Arial,sans-serif;margin:32px;color:#111}h1{margin-bottom:0}h2{border-bottom:2px solid #222;padding-bottom:4px;margin-top:22px}.report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.report-field{border:1px solid #aaa;padding:8px}.report-field b{display:block;font-size:10px;text-transform:uppercase;color:#555}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #ccc;padding:7px;text-align:left;font-size:12px}@media print{body{margin:.35in}}</style></head><body>${content}</body></html>`);w.document.close();setTimeout(()=>w.print(),250)};
 // Add timer commands
+document.getElementById("viewTimeline").onclick=()=>{renderTimeline();document.getElementById("timelineModal").classList.add("show")};
+document.getElementById("quickEvent").onclick=()=>{document.getElementById("timelineModal").classList.add("show");renderTimeline();setTimeout(()=>document.getElementById("timelineInput").focus(),40)};
+document.getElementById("closeTimeline").onclick=()=>document.getElementById("timelineModal").classList.remove("show");
+document.getElementById("timelineModal").onclick=e=>{if(e.target.id==="timelineModal")e.currentTarget.classList.remove("show")};
+function addManualTimeline(){const input=document.getElementById("timelineInput"),v=input.value.trim();if(!v)return;logEvent("Negotiation note",v);input.value="";renderTimeline()}
+document.getElementById("addTimelineEvent").onclick=addManualTimeline;
+document.getElementById("timelineInput").addEventListener("keydown",e=>{if(e.key==="Enter")addManualTimeline()});
+renderTimeline();
 if(window.COMMANDS){COMMANDS.unshift({name:"Start response timer",sub:"Begin tracking response to cells",key:"response",run:()=>document.getElementById("responseStart").click()},{name:"Begin cell call",sub:"Stop officer wait and start 15-minute countdown",key:"cell call",run:()=>document.getElementById("beginCall").click()},{name:"Finish negotiation",sub:"Stop timers and build PDF report",key:"finish",run:()=>document.getElementById("finishBtn").click()})}
 })();
 </script>
