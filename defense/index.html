@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Headliner DOJ Suite — Defense v3.2.0</title>
+<title>Headliner DOJ Suite — Defense v3.3.1</title>
 <style>
 :root{
   --bg:#080808;--panel:#141414;--panel2:#202020;--line:#3d3d3d;
@@ -14,7 +14,7 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer;touch-action:manipulation}
-.app{height:100%;padding:10px;display:grid;grid-template-rows:58px 76px 25px 1fr 108px;gap:9px}
+.app{height:100%;min-height:0;padding:10px;display:grid;grid-template-rows:58px auto auto 25px minmax(320px,1fr) 108px;gap:9px;overflow:hidden}
 
 
 /* SUITE SHELL — v3.2 foundation */
@@ -136,10 +136,52 @@ button{cursor:pointer;touch-action:manipulation}
 .modal-btn{border:0;border-radius:8px;padding:10px 14px;color:#fff;font-weight:900}
 .copy{background:#237d45}.close{background:#4a4a4a}
 
-@media(max-width:1000px){
-  .app{grid-template-rows:82px 25px 1fr 116px}
-  .main{grid-template-columns:39% 61%}
-  .top{grid-template-columns:1fr 1fr 1fr auto}
+@media(max-width:1100px){
+  .app{grid-template-rows:58px auto auto 25px minmax(300px,1fr) auto}
+  .main{grid-template-columns:minmax(300px,42%) minmax(0,58%)}
+  .top{grid-template-columns:1fr 1fr;}
+  .actions{grid-column:1/-1;grid-template-columns:repeat(4,1fr);grid-template-rows:44px;min-width:0}
+  .bottom{grid-template-columns:1.4fr 1fr 1fr}
+}
+
+@media(max-width:760px){
+  html,body{height:auto;min-height:100%;overflow:auto}
+  .app{height:auto;min-height:100vh;overflow:visible;display:flex;flex-direction:column;padding:8px;gap:8px}
+  .suitebar{min-height:58px}
+  .suite-meta{gap:5px}.status-pill{padding:6px 8px}.suite-action{font-size:0;width:42px;padding:0}.suite-action::before{content:'🔎';font-size:16px}
+  .timer-workspace{grid-template-columns:1fr 1fr;padding:7px;gap:7px}
+  .timer-card.cell,.timer-card.case{grid-column:1/-1}
+  .timer-display{font-size:34px}
+  .timer-btn{min-height:42px;flex:1 1 calc(50% - 5px);font-size:11px}
+  .top{grid-template-columns:1fr}
+  .actions{grid-template-columns:1fr 1fr;grid-template-rows:46px 46px}
+  .choice{min-height:48px}
+  .csv-status{min-height:34px;flex-wrap:wrap;padding:7px 10px}
+  .main{display:flex;flex-direction:column;min-height:760px;gap:8px}
+  .panel.left{min-height:360px}.panel.right{min-height:400px}
+  .left{grid-template-rows:auto minmax(280px,1fr)}
+  .tools{grid-template-columns:1fr}.section-select,.search{height:50px}
+  .charge-btn{min-height:76px}
+  .right{grid-template-rows:minmax(300px,1fr) auto}
+  .totals{grid-template-columns:1fr 1fr}
+  .total{min-height:72px;display:flex;flex-direction:column;justify-content:center}
+  .bottom{grid-template-columns:1fr;min-height:0}
+  .box{min-height:108px}
+  .preset{min-height:46px}
+  .card-top{flex-direction:column}.card-actions{width:100%;display:grid;grid-template-columns:repeat(4,1fr)}
+  .mini{min-height:44px;padding:8px 5px}
+  .card-bottom{grid-template-columns:1fr;gap:7px}.original{text-align:center}
+  .suggest-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:480px){
+  .suitename{font-size:10px}.modulename{font-size:16px}.seal{width:32px;height:32px;font-size:14px}
+  .timer-workspace{grid-template-columns:1fr}.timer-card.cell,.timer-card.case{grid-column:auto}
+  .btnrow,.btnrow.four{grid-template-columns:1fr 1fr}
+  .actions{grid-template-columns:1fr 1fr}
+  .presets{grid-template-columns:1fr 1fr}
+  .card-actions{grid-template-columns:1fr 1fr}
+  .report-grid{grid-template-columns:1fr}
 }
 
 .database-modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:9999;padding:18px}
@@ -166,6 +208,17 @@ button{cursor:pointer;touch-action:manipulation}
 .report-modal{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:95000;padding:14px}.report-modal.show{display:flex}.report-card{width:min(980px,97vw);max-height:94vh;overflow:auto;background:#f7f7f3;color:#171717;border-radius:14px;padding:24px}.report-card h1{margin:0;font-size:27px}.report-card h2{font-size:16px;border-bottom:2px solid #222;padding-bottom:4px;margin-top:20px}.report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.report-field{border:1px solid #bbb;border-radius:6px;padding:8px}.report-field b{display:block;font-size:10px;text-transform:uppercase;color:#555}.report-table{width:100%;border-collapse:collapse}.report-table th,.report-table td{border-bottom:1px solid #ccc;text-align:left;padding:7px;font-size:12px}.report-actions{position:sticky;bottom:-24px;background:#eee;border-top:1px solid #bbb;margin:20px -24px -24px;padding:12px 24px;display:flex;justify-content:flex-end;gap:8px}.report-actions button{border:0;border-radius:7px;padding:10px 14px;font-weight:900}.pdf-btn{background:#9b1f24;color:#fff}.report-close{background:#555;color:#fff}
 @media(max-width:900px){.timer-workspace{grid-template-columns:1fr 1fr}.timer-card.cell,.timer-card.case{grid-column:1/-1}.report-grid{grid-template-columns:1fr 1fr}}
 
+/* Responsive layout repair v3.3.1 */
+.app > *{min-width:0}
+.top,.main,.bottom,.timer-workspace{min-width:0}
+.main{min-height:0}
+.panel,.selected,.charge-list{min-height:0}
+@media(min-width:1101px){
+  .timer-workspace{grid-template-columns:minmax(230px,1fr) minmax(230px,1fr) minmax(300px,1.2fr) minmax(300px,.85fr)}
+  .top{min-height:76px}
+}
+
+
 </style>
 </head>
 <body>
@@ -179,7 +232,7 @@ button{cursor:pointer;touch-action:manipulation}
     <input id="loginPassword" type="password" autocomplete="current-password" required>
     <button id="loginButton" type="submit">Unlock Defense</button>
     <div id="loginError" class="login-error" role="alert"></div>
-    <div class="login-foot">Suite v3.3.0 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
+    <div class="login-foot">Suite v3.3.1 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
   </form>
 </div>
 <div id="defenseApp" class="app app-locked">
@@ -190,7 +243,7 @@ button{cursor:pointer;touch-action:manipulation}
     <div><div class="suitename">HEADLINER DOJ SUITE</div><div class="modulename">Defense</div></div>
   </div>
   <div class="suite-meta">
-    <span class="status-pill">Suite v3.3.0</span>
+    <span class="status-pill">Suite v3.3.1</span>
     <span class="status-pill">PC7.17.26</span>
     <button id="commandBtn" class="suite-action" title="Open command palette">🔎 Search & Commands <span style="opacity:.7">/</span></button>
   </div>
