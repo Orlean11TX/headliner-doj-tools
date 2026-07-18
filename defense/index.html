@@ -221,6 +221,47 @@ button{cursor:pointer;touch-action:manipulation}
 
 
 </style>
+
+<style id="v4WorkspaceStyles">
+.case-workspace-v4{margin:8px 10px 0;display:grid;grid-template-columns:minmax(280px,.85fr) minmax(420px,1.4fr);gap:10px}
+.v4-card{background:#111a29;border:1px solid #34435b;border-radius:12px;padding:12px;min-width:0}
+.v4-title{font-size:11px;color:#dabb62;font-weight:950;text-transform:uppercase;letter-spacing:.09em;margin-bottom:9px}
+.participant-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.participant-grid .wide{grid-column:1/-1}
+.v4-field label{display:block;color:#9eabc0;font-size:10px;font-weight:900;text-transform:uppercase;margin:0 0 4px}
+.v4-field input,.v4-field select{width:100%;min-height:42px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:8px;padding:0 10px;font-size:13px}
+.authority-toggle{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px}
+.authority-btn{min-height:44px;border:1px solid #455670;border-radius:9px;background:#1b2739;color:#fff;font-weight:950}
+.authority-btn.active{background:#b89232;color:#08101c;border-color:#dfbb59}
+.intel-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.intel-stat{background:#0b1422;border:1px solid #2f4058;border-radius:9px;padding:9px}
+.intel-stat small{display:block;color:#9eabc0;font-weight:900;text-transform:uppercase;font-size:9px}
+.intel-stat strong{display:block;font-size:20px;margin-top:3px;font-variant-numeric:tabular-nums}
+.intel-stat .good{color:#7ee0a5}.intel-stat .warn{color:#ffd36b}
+.offer-factor-grid{display:grid;grid-template-columns:minmax(230px,.8fr) minmax(320px,1.2fr);gap:10px;margin-top:10px}
+.offer-builder{background:#0b1422;border:1px solid #2f4058;border-radius:10px;padding:10px}
+.offer-row{display:grid;grid-template-columns:1fr 96px;gap:8px;align-items:end;margin-bottom:8px}
+.offer-row input{width:100%;min-height:42px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:8px;padding:0 9px;font-size:16px;font-weight:900}
+.apply-offer{width:100%;min-height:46px;border:0;border-radius:9px;background:#b89232;color:#07101c;font-weight:950;font-size:14px}
+.factor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.factor{background:#0b1422;border:1px solid #2f4058;border-radius:9px;padding:8px}
+.factor label{display:flex;justify-content:space-between;color:#c3cede;font-size:10px;font-weight:900;text-transform:uppercase;margin-bottom:5px}
+.factor output{color:#dabb62}
+.factor input[type=range]{width:100%;min-height:34px;accent-color:#dabb62}
+.factor select{width:100%;min-height:38px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:7px}
+.gauge-wrap{margin-top:10px}
+.gauge-labels{display:flex;justify-content:space-between;color:#9eabc0;font-size:10px;font-weight:900}
+.gauge{height:16px;background:linear-gradient(90deg,#8f3c3c,#c19a3a,#3f9b67);border-radius:99px;position:relative;margin-top:5px;border:1px solid #56657a}
+.gauge-pointer{position:absolute;top:-5px;width:4px;height:24px;background:#fff;border-radius:3px;box-shadow:0 0 8px #fff;left:50%;transform:translateX(-50%)}
+.analysis-line{margin-top:8px;padding:9px;border-radius:8px;background:#08111e;color:#d7dfeb;font-size:12px}
+.offer-history{margin-top:10px;display:flex;gap:7px;overflow:auto;padding-bottom:4px}
+.offer-chip{flex:0 0 auto;background:#1a2739;border:1px solid #455670;border-radius:9px;padding:7px 9px;font-size:11px}
+.offer-chip b{display:block;color:#dabb62}
+@media(max-width:1000px){.case-workspace-v4{grid-template-columns:1fr}.intel-top{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.participant-grid,.factor-grid,.offer-factor-grid{grid-template-columns:1fr}.intel-top{grid-template-columns:1fr 1fr}.case-workspace-v4{margin:8px 6px 0}.authority-btn,.apply-offer,.v4-field input,.v4-field select{min-height:48px}}
+@media(max-width:430px){.intel-top{grid-template-columns:1fr}.participant-grid{grid-template-columns:1fr}.participant-grid .wide{grid-column:auto}}
+</style>
+
 </head>
 <body>
 
@@ -233,7 +274,7 @@ button{cursor:pointer;touch-action:manipulation}
     <input id="loginPassword" type="password" autocomplete="current-password" required>
     <button id="loginButton" type="submit">Unlock Defense</button>
     <div id="loginError" class="login-error" role="alert"></div>
-    <div class="login-foot">Suite v3.4.0 • Penal Code PC7.17.26 • Session remains active for 7 days</div>
+    <div class="login-foot">Suite v4.0.0 Alpha • Penal Code PC7.17.26 • Session remains active for 7 days</div>
   </form>
 </div>
 <div id="defenseApp" class="app app-locked">
@@ -244,7 +285,7 @@ button{cursor:pointer;touch-action:manipulation}
     <div><div class="suitename">HEADLINER DOJ SUITE</div><div class="modulename">Defense</div></div>
   </div>
   <div class="suite-meta">
-    <span class="status-pill">Suite v3.4.0</span>
+    <span class="status-pill">Suite v4.0.0 Alpha</span>
     <span class="status-pill">PC7.17.26</span>
     <button id="commandBtn" class="suite-action" title="Open command palette">🔎 Search & Commands <span style="opacity:.7">/</span></button>
   </div>
@@ -298,6 +339,59 @@ button{cursor:pointer;touch-action:manipulation}
   </div>
 </div>
 
+
+<div class="case-workspace-v4" id="caseWorkspaceV4">
+  <section class="v4-card">
+    <div class="v4-title">Case Participants & Negotiation Authority</div>
+    <div class="authority-toggle">
+      <button class="authority-btn active" data-authority="Officer">Officer</button>
+      <button class="authority-btn" data-authority="DA's Office">DA's Office</button>
+    </div>
+    <div class="participant-grid">
+      <div class="v4-field"><label>Defense Attorney</label><input id="defenseAttorneyV4" placeholder="Attorney name"></div>
+      <div class="v4-field"><label>State Representative</label><input id="stateRepresentativeV4" placeholder="Officer name"></div>
+      <div class="v4-field"><label>Agency / Office</label><input id="stateAgencyV4" placeholder="LSPD, BCSO, DOJ..."></div>
+      <div class="v4-field"><label>Role</label><select id="stateRoleV4"><option>Officer</option><option>Prosecutor</option><option>Assistant District Attorney</option><option>Deputy District Attorney</option><option>District Attorney</option></select></div>
+    </div>
+  </section>
+
+  <section class="v4-card">
+    <div class="v4-title">Negotiation Intelligence</div>
+    <div class="intel-top">
+      <div class="intel-stat"><small>Original Exposure</small><strong id="v4Original">0 mo / $0</strong></div>
+      <div class="intel-stat"><small>Current Offer</small><strong id="v4Current">0 mo / $0</strong></div>
+      <div class="intel-stat"><small>Time Reduction</small><strong class="good" id="v4TimeReduction">0%</strong></div>
+      <div class="intel-stat"><small>Fine Reduction</small><strong class="good" id="v4FineReduction">0%</strong></div>
+    </div>
+
+    <div class="offer-factor-grid">
+      <div class="offer-builder">
+        <div class="v4-title">Manual Offer Builder</div>
+        <div class="offer-row"><div class="v4-field"><label>Months Off</label><input id="manualMonthsOffV4" type="number" min="0" step="1" value="0"></div><div class="v4-field"><label>Offer By</label><select id="offerSourceV4"><option>State</option><option>Defense</option><option>Client</option></select></div></div>
+        <div class="offer-row"><div class="v4-field"><label>Fine Off</label><input id="manualFineOffV4" type="number" min="0" step="100" value="0"></div><div></div></div>
+        <button class="apply-offer" id="applyManualOfferV4">Apply & Log Offer</button>
+        <div class="offer-history" id="offerHistoryV4"></div>
+      </div>
+
+      <div>
+        <div class="factor-grid">
+          <div class="factor"><label>State Position <output id="statePositionOut">5</output></label><input id="statePositionV4" type="range" min="1" max="10" value="5"></div>
+          <div class="factor"><label>State Flexibility <output id="stateFlexOut">5</output></label><input id="stateFlexV4" type="range" min="1" max="10" value="5"></div>
+          <div class="factor"><label>Client Position <output id="clientPositionOut">5</output></label><input id="clientPositionV4" type="range" min="1" max="10" value="5"></div>
+          <div class="factor"><label>Client Cooperation <output id="clientCoopOut">5</output></label><input id="clientCoopV4" type="range" min="1" max="10" value="5" title="1 = professional/cooperative, 10 = hostile or disruptive"></div>
+          <div class="factor"><label>Evidence Strength</label><select id="evidenceV4"><option>Weak</option><option selected>Moderate</option><option>Strong</option><option>Overwhelming</option></select></div>
+          <div class="factor"><label>Criminal History</label><select id="historyV4"><option selected>None</option><option>Minor</option><option>Moderate</option><option>Extensive</option></select></div>
+        </div>
+        <div class="gauge-wrap">
+          <div class="gauge-labels"><span>State Favored</span><span>Balanced</span><span>Defense Favored</span></div>
+          <div class="gauge"><div class="gauge-pointer" id="gaugePointerV4"></div></div>
+          <div class="analysis-line" id="analysisV4">Add charges and an offer to begin analysis.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <div class="csv-status">
   <span><strong>Penal Code:</strong> <span id="csvVersion">PC7.17.26</span> • <span id="csvSource">Built-In</span></span>
   <span id="csvCount" class="csv-ok">173 charges • Updated 07/17/2026 10:39 PM CDT</span>
@@ -320,7 +414,7 @@ button{cursor:pointer;touch-action:manipulation}
   <div class="database-card">
     <h2>Penal Code Database</h2>
     <div class="database-grid">
-      <strong>Application</strong><span>Defense Module v3.4.0</span>
+      <strong>Application</strong><span>Defense Module v4.0.0 Alpha</span>
       <strong>Version</strong><span id="aboutCsvVersion">PC7.17.26</span>
       <strong>Updated</strong><span id="aboutCsvUpdated">07/17/2026 10:39 PM CDT</span>
       <strong>Charges</strong><span id="aboutCsvCount">173</span>
@@ -873,7 +967,167 @@ function openReport(){stopNoLog("response");stopNoLog("wait");stopNoLog("cell");
  document.getElementById("reportModal").classList.add("show");document.getElementById("reportModal").setAttribute("aria-hidden","false")}
 document.getElementById("finishBtn").onclick=()=>{stopNoLog("response");stopNoLog("wait");stopNoLog("cell");logEvent("Negotiation finished",`Response ${fmt(seconds("response"))} • Wait ${fmt(seconds("wait"))} • Call ${fmt(seconds("cell"))}`);openReport()};
 document.getElementById("closeReport").onclick=()=>document.getElementById("reportModal").classList.remove("show");
-document.getElementById("printReport").onclick=()=>{const content=document.getElementById("reportContent").innerHTML,w=window.open("","_blank");w.document.write(`<!doctype html><html><head><title>Defense Negotiation Summary</title><style>body{font-family:Arial,sans-serif;margin:32px;color:#111}h1{margin-bottom:0}h2{border-bottom:2px solid #222;padding-bottom:4px;margin-top:22px}.report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.report-field{border:1px solid #aaa;padding:8px}.report-field b{display:block;font-size:10px;text-transform:uppercase;color:#555}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #ccc;padding:7px;text-align:left;font-size:12px}@media print{body{margin:.35in}}</style></head><body>${content}</body></html>`);w.document.close();setTimeout(()=>w.print(),250)};
+document.getElementById("printReport").onclick=()=>{const content=document.getElementById("reportContent").innerHTML,w=window.open("","_blank");w.document.write(`<!doctype html><html><head><title>Defense Negotiation Summary</title><style>body{font-family:Arial,sans-serif;margin:32px;color:#111}h1{margin-bottom:0}h2{border-bottom:2px solid #222;padding-bottom:4px;margin-top:22px}.report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.report-field{border:1px solid #aaa;padding:8px}.report-field b{display:block;font-size:10px;text-transform:uppercase;color:#555}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #ccc;padding:7px;text-align:left;font-size:12px}@media print{body{margin:.35in}}</style>
+<style id="v4WorkspaceStyles">
+.case-workspace-v4{margin:8px 10px 0;display:grid;grid-template-columns:minmax(280px,.85fr) minmax(420px,1.4fr);gap:10px}
+.v4-card{background:#111a29;border:1px solid #34435b;border-radius:12px;padding:12px;min-width:0}
+.v4-title{font-size:11px;color:#dabb62;font-weight:950;text-transform:uppercase;letter-spacing:.09em;margin-bottom:9px}
+.participant-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.participant-grid .wide{grid-column:1/-1}
+.v4-field label{display:block;color:#9eabc0;font-size:10px;font-weight:900;text-transform:uppercase;margin:0 0 4px}
+.v4-field input,.v4-field select{width:100%;min-height:42px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:8px;padding:0 10px;font-size:13px}
+.authority-toggle{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px}
+.authority-btn{min-height:44px;border:1px solid #455670;border-radius:9px;background:#1b2739;color:#fff;font-weight:950}
+.authority-btn.active{background:#b89232;color:#08101c;border-color:#dfbb59}
+.intel-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.intel-stat{background:#0b1422;border:1px solid #2f4058;border-radius:9px;padding:9px}
+.intel-stat small{display:block;color:#9eabc0;font-weight:900;text-transform:uppercase;font-size:9px}
+.intel-stat strong{display:block;font-size:20px;margin-top:3px;font-variant-numeric:tabular-nums}
+.intel-stat .good{color:#7ee0a5}.intel-stat .warn{color:#ffd36b}
+.offer-factor-grid{display:grid;grid-template-columns:minmax(230px,.8fr) minmax(320px,1.2fr);gap:10px;margin-top:10px}
+.offer-builder{background:#0b1422;border:1px solid #2f4058;border-radius:10px;padding:10px}
+.offer-row{display:grid;grid-template-columns:1fr 96px;gap:8px;align-items:end;margin-bottom:8px}
+.offer-row input{width:100%;min-height:42px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:8px;padding:0 9px;font-size:16px;font-weight:900}
+.apply-offer{width:100%;min-height:46px;border:0;border-radius:9px;background:#b89232;color:#07101c;font-weight:950;font-size:14px}
+.factor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.factor{background:#0b1422;border:1px solid #2f4058;border-radius:9px;padding:8px}
+.factor label{display:flex;justify-content:space-between;color:#c3cede;font-size:10px;font-weight:900;text-transform:uppercase;margin-bottom:5px}
+.factor output{color:#dabb62}
+.factor input[type=range]{width:100%;min-height:34px;accent-color:#dabb62}
+.factor select{width:100%;min-height:38px;background:#08111e;color:#fff;border:1px solid #455670;border-radius:7px}
+.gauge-wrap{margin-top:10px}
+.gauge-labels{display:flex;justify-content:space-between;color:#9eabc0;font-size:10px;font-weight:900}
+.gauge{height:16px;background:linear-gradient(90deg,#8f3c3c,#c19a3a,#3f9b67);border-radius:99px;position:relative;margin-top:5px;border:1px solid #56657a}
+.gauge-pointer{position:absolute;top:-5px;width:4px;height:24px;background:#fff;border-radius:3px;box-shadow:0 0 8px #fff;left:50%;transform:translateX(-50%)}
+.analysis-line{margin-top:8px;padding:9px;border-radius:8px;background:#08111e;color:#d7dfeb;font-size:12px}
+.offer-history{margin-top:10px;display:flex;gap:7px;overflow:auto;padding-bottom:4px}
+.offer-chip{flex:0 0 auto;background:#1a2739;border:1px solid #455670;border-radius:9px;padding:7px 9px;font-size:11px}
+.offer-chip b{display:block;color:#dabb62}
+@media(max-width:1000px){.case-workspace-v4{grid-template-columns:1fr}.intel-top{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.participant-grid,.factor-grid,.offer-factor-grid{grid-template-columns:1fr}.intel-top{grid-template-columns:1fr 1fr}.case-workspace-v4{margin:8px 6px 0}.authority-btn,.apply-offer,.v4-field input,.v4-field select{min-height:48px}}
+@media(max-width:430px){.intel-top{grid-template-columns:1fr}.participant-grid{grid-template-columns:1fr}.participant-grid .wide{grid-column:auto}}
+</style>
+
+</head><body>${content}
+<script id="v4WorkspaceScript">
+(() => {
+  const KEY="headlinerDefenseV4Negotiation";
+  let ni={authority:"Officer",attorney:"",representative:"",agency:"",role:"Officer",monthsOff:0,fineOff:0,
+    statePosition:5,stateFlex:5,clientPosition:5,clientCoop:5,evidence:"Moderate",history:"None",offers:[]};
+  try{ni={...ni,...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){}
+  const $=id=>document.getElementById(id);
+  const moneyV4=n=>"$"+Math.max(0,Math.round(Number(n)||0)).toLocaleString();
+  const saveV4=()=>localStorage.setItem(KEY,JSON.stringify(ni));
+  function exposure(){
+    try{
+      const t=totals();
+      return {ot:t.ot||0,of:t.of||0,baseT:t.pt||0,baseF:t.pf||0,
+        currentT:Math.max(0,(t.pt||0)-(ni.monthsOff||0)),
+        currentF:Math.max(0,(t.pf||0)-(ni.fineOff||0))};
+    }catch(e){return {ot:0,of:0,baseT:0,baseF:0,currentT:0,currentF:0}}
+  }
+  function pct(a,b){return a>0?Math.max(0,Math.round((a-b)/a*100)):0}
+  function score(ex){
+    const reduction=(pct(ex.ot,ex.currentT)+pct(ex.of,ex.currentF))/2;
+    const evidence={Weak:10,Moderate:4,Strong:-4,Overwhelming:-10}[ni.evidence]||0;
+    const history={None:7,Minor:2,Moderate:-3,Extensive:-8}[ni.history]||0;
+    const cooperation=(11-ni.clientCoop)*1.2-6;
+    const leverage=(ni.stateFlex-5)*2-(ni.statePosition-5)*1.5-(ni.clientPosition-5)*.7;
+    return Math.max(0,Math.min(100,50+(reduction-20)*1.1+evidence+history+cooperation+leverage));
+  }
+  function renderV4(){
+    const ex=exposure(), tr=pct(ex.ot,ex.currentT), fr=pct(ex.of,ex.currentF), s=score(ex);
+    $("v4Original").textContent=`${ex.ot} mo / ${moneyV4(ex.of)}`;
+    $("v4Current").textContent=`${ex.currentT} mo / ${moneyV4(ex.currentF)}`;
+    $("v4TimeReduction").textContent=`${tr}%`;
+    $("v4FineReduction").textContent=`${fr}%`;
+    $("gaugePointerV4").style.left=`${s}%`;
+    let text="Balanced negotiation position.";
+    if(!ex.ot&&!ex.of) text="Add charges and an offer to begin analysis.";
+    else if(s<30) text="The current result remains strongly State-favored based on the entered context.";
+    else if(s<45) text="The current result leans toward the State; additional room may remain.";
+    else if(s<60) text="The current result appears broadly balanced.";
+    else if(s<75) text="The current result leans toward the Defense.";
+    else text="The entered reduction is highly favorable to the Defense; verify that it matches the intended agreement.";
+    if(ni.clientCoop>=8) text+=" Client cooperation is marked hostile/disruptive and is reducing expected negotiation leverage.";
+    $("analysisV4").textContent=text;
+    $("offerHistoryV4").innerHTML=(ni.offers||[]).slice().reverse().map(o=>`<div class="offer-chip"><b>${o.source}</b>${o.months} mo / ${moneyV4(o.fine)}<br><small>${new Date(o.at).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}</small></div>`).join("")||'<div class="offer-chip">No offers logged</div>';
+    document.querySelectorAll(".authority-btn").forEach(b=>b.classList.toggle("active",b.dataset.authority===ni.authority));
+    $("stateRepresentativeV4").placeholder=ni.authority==="Officer"?"Officer name":"DA / ADA / Prosecutor name";
+  }
+  function bindValue(id,key,event="input"){
+    const el=$(id); if(!el)return;
+    el.value=ni[key]??el.value;
+    el.addEventListener(event,()=>{ni[key]=el.type==="range"?Number(el.value):el.value;saveV4();renderV4()});
+  }
+  document.querySelectorAll(".authority-btn").forEach(b=>b.onclick=()=>{
+    ni.authority=b.dataset.authority;
+    ni.role=ni.authority==="Officer"?"Officer":"Assistant District Attorney";
+    $("stateRoleV4").value=ni.role;
+    saveV4(); renderV4();
+    if(typeof logEvent==="function")logEvent("Negotiation authority selected",ni.authority);
+  });
+  bindValue("defenseAttorneyV4","attorney","change");
+  bindValue("stateRepresentativeV4","representative","change");
+  bindValue("stateAgencyV4","agency","change");
+  bindValue("stateRoleV4","role","change");
+  bindValue("statePositionV4","statePosition");
+  bindValue("stateFlexV4","stateFlex");
+  bindValue("clientPositionV4","clientPosition");
+  bindValue("clientCoopV4","clientCoop");
+  bindValue("evidenceV4","evidence","change");
+  bindValue("historyV4","history","change");
+  [["statePositionV4","statePositionOut"],["stateFlexV4","stateFlexOut"],["clientPositionV4","clientPositionOut"],["clientCoopV4","clientCoopOut"]].forEach(([a,b])=>{
+    const el=$(a); const out=$(b); out.textContent=el.value; el.addEventListener("input",()=>out.textContent=el.value);
+  });
+  $("manualMonthsOffV4").value=ni.monthsOff||0;
+  $("manualFineOffV4").value=ni.fineOff||0;
+  $("applyManualOfferV4").onclick=()=>{
+    ni.monthsOff=Math.max(0,Number($("manualMonthsOffV4").value)||0);
+    ni.fineOff=Math.max(0,Number($("manualFineOffV4").value)||0);
+    const ex=exposure(), source=$("offerSourceV4").value;
+    ni.offers.push({at:new Date().toISOString(),source,months:ex.currentT,fine:ex.currentF,monthsOff:ni.monthsOff,fineOff:ni.fineOff});
+    saveV4();renderV4();
+    if(typeof logEvent==="function")logEvent(`${source} offer recorded`,`${ex.currentT} months / ${moneyV4(ex.currentF)} • ${ni.monthsOff} months and ${moneyV4(ni.fineOff)} off`);
+  };
+  // Keep the legacy call-details officer field synchronized with the selected State representative.
+  $("stateRepresentativeV4").addEventListener("change",()=>{const old=$("officerName"); if(old){old.value=$("stateRepresentativeV4").value; old.dispatchEvent(new Event("change"))}});
+  // Refresh intelligence after normal charge interactions.
+  document.addEventListener("click",()=>setTimeout(renderV4,30));
+  document.addEventListener("change",()=>setTimeout(renderV4,30));
+  const oldOpen=window.openReport;
+  if(typeof oldOpen==="function"){
+    window.openReport=function(){
+      oldOpen();
+      const ex=exposure();
+      const section=document.createElement("div");
+      section.innerHTML=`<h2>Negotiation Authority & Intelligence</h2>
+      <div class="report-grid">
+        <div class="report-field"><b>Defense Attorney</b>${esc(ni.attorney||"—")}</div>
+        <div class="report-field"><b>State Authority</b>${esc(ni.authority)}</div>
+        <div class="report-field"><b>State Representative</b>${esc(ni.representative||"—")}</div>
+        <div class="report-field"><b>Role / Agency</b>${esc((ni.role||"—")+(ni.agency?" • "+ni.agency:""))}</div>
+        <div class="report-field"><b>Manual Concession</b>${ni.monthsOff} months / ${moneyV4(ni.fineOff)}</div>
+        <div class="report-field"><b>Adjusted Final Offer</b>${ex.currentT} months / ${moneyV4(ex.currentF)}</div>
+        <div class="report-field"><b>State Position / Flexibility</b>${ni.statePosition}/10 • ${ni.stateFlex}/10</div>
+        <div class="report-field"><b>Client Position / Cooperation</b>${ni.clientPosition}/10 • ${ni.clientCoop}/10</div>
+        <div class="report-field"><b>Evidence / History</b>${esc(ni.evidence)} • ${esc(ni.history)}</div>
+      </div><h2>Offer History</h2><table class="report-table"><thead><tr><th>Time</th><th>Source</th><th>Offer</th><th>Concession</th></tr></thead><tbody>${
+        (ni.offers||[]).map(o=>`<tr><td>${new Date(o.at).toLocaleTimeString()}</td><td>${esc(o.source)}</td><td>${o.months} mo / ${moneyV4(o.fine)}</td><td>${o.monthsOff} mo / ${moneyV4(o.fineOff)}</td></tr>`).join("")||'<tr><td colspan="4">No manual offers logged.</td></tr>'
+      }</tbody></table>`;
+      $("reportContent").appendChild(section);
+    };
+    $("finishBtn").onclick=()=>window.openReport();
+    $("cellFinish").onclick=()=>{if(typeof stopTimer==="function")stopTimer("cell","Cell call finished");window.openReport()};
+  }
+  // Include V4 data in Clear Case.
+  const clear=$("clearBtn");
+  if(clear)clear.addEventListener("click",()=>{ni={authority:"Officer",attorney:ni.attorney||"",representative:"",agency:"",role:"Officer",monthsOff:0,fineOff:0,statePosition:5,stateFlex:5,clientPosition:5,clientCoop:5,evidence:"Moderate",history:"None",offers:[]};saveV4();location.reload()});
+  renderV4();
+})();
+</script>
+
+</body></html>`);w.document.close();setTimeout(()=>w.print(),250)};
 // Add timer commands
 document.getElementById("viewTimeline").onclick=()=>{renderTimeline();document.getElementById("timelineModal").classList.add("show")};
 document.getElementById("quickEvent").onclick=()=>{document.getElementById("timelineModal").classList.add("show");renderTimeline();setTimeout(()=>document.getElementById("timelineInput").focus(),40)};
@@ -884,6 +1138,125 @@ document.getElementById("addTimelineEvent").onclick=addManualTimeline;
 document.getElementById("timelineInput").addEventListener("keydown",e=>{if(e.key==="Enter")addManualTimeline()});
 renderTimeline();
 if(window.COMMANDS){COMMANDS.unshift({name:"Start response timer",sub:"Begin tracking response to cells",key:"response",run:()=>document.getElementById("responseStart").click()},{name:"Begin cell call",sub:"Stop officer wait and start 15-minute countdown",key:"cell call",run:()=>document.getElementById("beginCall").click()},{name:"Finish negotiation",sub:"Stop timers and build PDF report",key:"finish",run:()=>document.getElementById("finishBtn").click()})}
+})();
+</script>
+
+
+<script id="v4WorkspaceScript">
+(() => {
+  const KEY="headlinerDefenseV4Negotiation";
+  let ni={authority:"Officer",attorney:"",representative:"",agency:"",role:"Officer",monthsOff:0,fineOff:0,
+    statePosition:5,stateFlex:5,clientPosition:5,clientCoop:5,evidence:"Moderate",history:"None",offers:[]};
+  try{ni={...ni,...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch(e){}
+  const $=id=>document.getElementById(id);
+  const moneyV4=n=>"$"+Math.max(0,Math.round(Number(n)||0)).toLocaleString();
+  const saveV4=()=>localStorage.setItem(KEY,JSON.stringify(ni));
+  function exposure(){
+    try{
+      const t=totals();
+      return {ot:t.ot||0,of:t.of||0,baseT:t.pt||0,baseF:t.pf||0,
+        currentT:Math.max(0,(t.pt||0)-(ni.monthsOff||0)),
+        currentF:Math.max(0,(t.pf||0)-(ni.fineOff||0))};
+    }catch(e){return {ot:0,of:0,baseT:0,baseF:0,currentT:0,currentF:0}}
+  }
+  function pct(a,b){return a>0?Math.max(0,Math.round((a-b)/a*100)):0}
+  function score(ex){
+    const reduction=(pct(ex.ot,ex.currentT)+pct(ex.of,ex.currentF))/2;
+    const evidence={Weak:10,Moderate:4,Strong:-4,Overwhelming:-10}[ni.evidence]||0;
+    const history={None:7,Minor:2,Moderate:-3,Extensive:-8}[ni.history]||0;
+    const cooperation=(11-ni.clientCoop)*1.2-6;
+    const leverage=(ni.stateFlex-5)*2-(ni.statePosition-5)*1.5-(ni.clientPosition-5)*.7;
+    return Math.max(0,Math.min(100,50+(reduction-20)*1.1+evidence+history+cooperation+leverage));
+  }
+  function renderV4(){
+    const ex=exposure(), tr=pct(ex.ot,ex.currentT), fr=pct(ex.of,ex.currentF), s=score(ex);
+    $("v4Original").textContent=`${ex.ot} mo / ${moneyV4(ex.of)}`;
+    $("v4Current").textContent=`${ex.currentT} mo / ${moneyV4(ex.currentF)}`;
+    $("v4TimeReduction").textContent=`${tr}%`;
+    $("v4FineReduction").textContent=`${fr}%`;
+    $("gaugePointerV4").style.left=`${s}%`;
+    let text="Balanced negotiation position.";
+    if(!ex.ot&&!ex.of) text="Add charges and an offer to begin analysis.";
+    else if(s<30) text="The current result remains strongly State-favored based on the entered context.";
+    else if(s<45) text="The current result leans toward the State; additional room may remain.";
+    else if(s<60) text="The current result appears broadly balanced.";
+    else if(s<75) text="The current result leans toward the Defense.";
+    else text="The entered reduction is highly favorable to the Defense; verify that it matches the intended agreement.";
+    if(ni.clientCoop>=8) text+=" Client cooperation is marked hostile/disruptive and is reducing expected negotiation leverage.";
+    $("analysisV4").textContent=text;
+    $("offerHistoryV4").innerHTML=(ni.offers||[]).slice().reverse().map(o=>`<div class="offer-chip"><b>${o.source}</b>${o.months} mo / ${moneyV4(o.fine)}<br><small>${new Date(o.at).toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}</small></div>`).join("")||'<div class="offer-chip">No offers logged</div>';
+    document.querySelectorAll(".authority-btn").forEach(b=>b.classList.toggle("active",b.dataset.authority===ni.authority));
+    $("stateRepresentativeV4").placeholder=ni.authority==="Officer"?"Officer name":"DA / ADA / Prosecutor name";
+  }
+  function bindValue(id,key,event="input"){
+    const el=$(id); if(!el)return;
+    el.value=ni[key]??el.value;
+    el.addEventListener(event,()=>{ni[key]=el.type==="range"?Number(el.value):el.value;saveV4();renderV4()});
+  }
+  document.querySelectorAll(".authority-btn").forEach(b=>b.onclick=()=>{
+    ni.authority=b.dataset.authority;
+    ni.role=ni.authority==="Officer"?"Officer":"Assistant District Attorney";
+    $("stateRoleV4").value=ni.role;
+    saveV4(); renderV4();
+    if(typeof logEvent==="function")logEvent("Negotiation authority selected",ni.authority);
+  });
+  bindValue("defenseAttorneyV4","attorney","change");
+  bindValue("stateRepresentativeV4","representative","change");
+  bindValue("stateAgencyV4","agency","change");
+  bindValue("stateRoleV4","role","change");
+  bindValue("statePositionV4","statePosition");
+  bindValue("stateFlexV4","stateFlex");
+  bindValue("clientPositionV4","clientPosition");
+  bindValue("clientCoopV4","clientCoop");
+  bindValue("evidenceV4","evidence","change");
+  bindValue("historyV4","history","change");
+  [["statePositionV4","statePositionOut"],["stateFlexV4","stateFlexOut"],["clientPositionV4","clientPositionOut"],["clientCoopV4","clientCoopOut"]].forEach(([a,b])=>{
+    const el=$(a); const out=$(b); out.textContent=el.value; el.addEventListener("input",()=>out.textContent=el.value);
+  });
+  $("manualMonthsOffV4").value=ni.monthsOff||0;
+  $("manualFineOffV4").value=ni.fineOff||0;
+  $("applyManualOfferV4").onclick=()=>{
+    ni.monthsOff=Math.max(0,Number($("manualMonthsOffV4").value)||0);
+    ni.fineOff=Math.max(0,Number($("manualFineOffV4").value)||0);
+    const ex=exposure(), source=$("offerSourceV4").value;
+    ni.offers.push({at:new Date().toISOString(),source,months:ex.currentT,fine:ex.currentF,monthsOff:ni.monthsOff,fineOff:ni.fineOff});
+    saveV4();renderV4();
+    if(typeof logEvent==="function")logEvent(`${source} offer recorded`,`${ex.currentT} months / ${moneyV4(ex.currentF)} • ${ni.monthsOff} months and ${moneyV4(ni.fineOff)} off`);
+  };
+  // Keep the legacy call-details officer field synchronized with the selected State representative.
+  $("stateRepresentativeV4").addEventListener("change",()=>{const old=$("officerName"); if(old){old.value=$("stateRepresentativeV4").value; old.dispatchEvent(new Event("change"))}});
+  // Refresh intelligence after normal charge interactions.
+  document.addEventListener("click",()=>setTimeout(renderV4,30));
+  document.addEventListener("change",()=>setTimeout(renderV4,30));
+  const oldOpen=window.openReport;
+  if(typeof oldOpen==="function"){
+    window.openReport=function(){
+      oldOpen();
+      const ex=exposure();
+      const section=document.createElement("div");
+      section.innerHTML=`<h2>Negotiation Authority & Intelligence</h2>
+      <div class="report-grid">
+        <div class="report-field"><b>Defense Attorney</b>${esc(ni.attorney||"—")}</div>
+        <div class="report-field"><b>State Authority</b>${esc(ni.authority)}</div>
+        <div class="report-field"><b>State Representative</b>${esc(ni.representative||"—")}</div>
+        <div class="report-field"><b>Role / Agency</b>${esc((ni.role||"—")+(ni.agency?" • "+ni.agency:""))}</div>
+        <div class="report-field"><b>Manual Concession</b>${ni.monthsOff} months / ${moneyV4(ni.fineOff)}</div>
+        <div class="report-field"><b>Adjusted Final Offer</b>${ex.currentT} months / ${moneyV4(ex.currentF)}</div>
+        <div class="report-field"><b>State Position / Flexibility</b>${ni.statePosition}/10 • ${ni.stateFlex}/10</div>
+        <div class="report-field"><b>Client Position / Cooperation</b>${ni.clientPosition}/10 • ${ni.clientCoop}/10</div>
+        <div class="report-field"><b>Evidence / History</b>${esc(ni.evidence)} • ${esc(ni.history)}</div>
+      </div><h2>Offer History</h2><table class="report-table"><thead><tr><th>Time</th><th>Source</th><th>Offer</th><th>Concession</th></tr></thead><tbody>${
+        (ni.offers||[]).map(o=>`<tr><td>${new Date(o.at).toLocaleTimeString()}</td><td>${esc(o.source)}</td><td>${o.months} mo / ${moneyV4(o.fine)}</td><td>${o.monthsOff} mo / ${moneyV4(o.fineOff)}</td></tr>`).join("")||'<tr><td colspan="4">No manual offers logged.</td></tr>'
+      }</tbody></table>`;
+      $("reportContent").appendChild(section);
+    };
+    $("finishBtn").onclick=()=>window.openReport();
+    $("cellFinish").onclick=()=>{if(typeof stopTimer==="function")stopTimer("cell","Cell call finished");window.openReport()};
+  }
+  // Include V4 data in Clear Case.
+  const clear=$("clearBtn");
+  if(clear)clear.addEventListener("click",()=>{ni={authority:"Officer",attorney:ni.attorney||"",representative:"",agency:"",role:"Officer",monthsOff:0,fineOff:0,statePosition:5,stateFlex:5,clientPosition:5,clientCoop:5,evidence:"Moderate",history:"None",offers:[]};saveV4();location.reload()});
+  renderV4();
 })();
 </script>
 
